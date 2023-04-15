@@ -13,13 +13,15 @@ import java.util.Objects;
 public class User {
     private String cedula;
     private String clave;
-
+    private int tipo;
+    
     public User() {
     }
 
-    public User(String cedula, String clave) {
+    public User(String cedula, String clave, int tipo) {
         this.cedula = cedula;
         this.clave = clave;
+        this.tipo = tipo;
     }
 
     public String getCedula() {
@@ -37,7 +39,21 @@ public class User {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -50,11 +66,12 @@ public class User {
             return false;
         }
         final User other = (User) obj;
+        if (this.tipo != other.tipo) {
+            return false;
+        }
         if (!Objects.equals(this.cedula, other.cedula)) {
             return false;
         }
         return Objects.equals(this.clave, other.clave);
     }
-    
-    
 }

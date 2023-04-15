@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.proyect.progra.proyectoprogra4.logic;
-import com.proyect.progra.proyectoprogra4.logic.Poliza;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,30 +12,28 @@ import java.util.Objects;
  * @author javir
  */
 public class Client {
-    String identificacion;
     String nombre;
+    String cedula;
+    String placa;
+    int tarjeta;
     String telefono;
     String correo;
-    //tarjeta
+    User usuario;
     List<Poliza> polizas;
 
-    public Client() {
-    }
-
-    public Client(String identificacion, String nombre, String telefono, String correo, List<Poliza> polizas) {
-        this.identificacion = identificacion;
+    public Client(String nombre, String cedula, String placa, int tarjeta, String telefono, String correo, User usuario) {
         this.nombre = nombre;
+        this.cedula = cedula;
+        this.placa = placa;
+        this.tarjeta = tarjeta;
         this.telefono = telefono;
         this.correo = correo;
-        this.polizas = polizas;
+        this.usuario = usuario;
+        this.polizas = new ArrayList();
     }
 
-    public String getIdentificacion() {
-        return identificacion;
-    }
-
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public Client() {
+        this("","","",0,"","",new User());
     }
 
     public String getNombre() {
@@ -44,6 +42,30 @@ public class Client {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public int getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(int tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
     public String getTelefono() {
@@ -62,12 +84,26 @@ public class Client {
         this.correo = correo;
     }
 
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+
     public List<Poliza> getPolizas() {
         return polizas;
     }
 
     public void setPolizas(List<Poliza> polizas) {
         this.polizas = polizas;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
     }
 
     @Override
@@ -82,10 +118,16 @@ public class Client {
             return false;
         }
         final Client other = (Client) obj;
-        if (!Objects.equals(this.identificacion, other.identificacion)) {
+        if (this.tarjeta != other.tarjeta) {
             return false;
         }
         if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.cedula, other.cedula)) {
+            return false;
+        }
+        if (!Objects.equals(this.placa, other.placa)) {
             return false;
         }
         if (!Objects.equals(this.telefono, other.telefono)) {
@@ -94,8 +136,11 @@ public class Client {
         if (!Objects.equals(this.correo, other.correo)) {
             return false;
         }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
         return Objects.equals(this.polizas, other.polizas);
     }
-    
+
     
 }

@@ -1,0 +1,49 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.proyect.progra.proyectoprogra4.data;
+
+import com.proyect.progra.proyectoprogra4.logic.User;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author leoch
+ */
+public class UsuarioDao {
+    RelDatabase db;
+    
+    public UsuarioDao(RelDatabase db){
+    this.db = db;
+    }
+    
+    public User read(String cedula) throws Exception {
+        String sql =  "select " +
+                "* " +
+                "from  Usuario u " +
+                "where u.cedula=?";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, cedula);
+        ResultSet rs = db.executeQuery(stm);
+        if( rs.next()) {
+            return from(rs,"u");
+        }  else {
+            throw new Exception("Usuario no existe");
+        }
+    }
+    
+    public User from(ResultSet rs, String alias) {
+        try{
+            User u = new User();
+            u.setCedula(rs.getString(alias + ".cedula"));
+            u.setClave(rs.getString(alias + ".clave"));
+            u.setTipo(rs.getInt(alias + ".tipo"));
+            return u;
+        } catch (SQLException ex){
+            return null;
+        }
+    }
+}
