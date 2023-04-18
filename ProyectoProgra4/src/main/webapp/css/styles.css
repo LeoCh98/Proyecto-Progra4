@@ -1,0 +1,98 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 17 Apr 2023, 19:29:28
+    Author     : leoch
+*/
+
+body{
+    background:  url(../images/background.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+header{ 
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: rgb(255, 105, 45);
+    text-align: center;
+}
+
+.logo{
+    text-align: left;
+}
+
+.logo>span{
+    font-family:  Open Sans, sans-serif;
+    font-size: 2.5em;
+    color: rgb(255, 105, 45);
+}
+
+.logo>img{
+    margin-right: 10px;
+    margin-top:20px;
+    border-radius: 50%;
+    margin-left: 40px;
+    width:10%;
+}
+
+.panel{
+    width: 20%;
+    margin: auto;
+    border: 5px solid orange;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.fila{
+    width:100%
+}
+
+.encabezado{
+    background-color: black;
+    color:rgb(255, 105, 45);
+    text-align:center;
+    font-size: 1.8em;
+}
+.etiqueta{
+    width:20%;
+    display:inline-block
+}
+.campo{
+    width:60%;
+    padding: 5px;
+    display:inline-block
+}
+
+input[type=text].is-invalid,input[type=password].is-invalid{
+    border-color:   red;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 12 12;
+    background-image: url("../images/is-invalid.png");
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #ff692d;
+    text-decoration: underline;
+    cursor: pointer;
+}

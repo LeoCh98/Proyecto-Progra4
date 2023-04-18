@@ -1,17 +1,27 @@
 <%-- 
     Document   : Header
-    Created on : 7 abr. 2023, 12:45:42
-    Author     : javir
+    Created on : 15 Apr 2023, 15:55:30
+    Author     : leoch
 --%>
+<%@page import="com.proyect.progra.proyectoprogra4.logic.User"%>
+<% User usuario=  (User) session.getAttribute("usuario");  %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<header>
+    <div class="logo">
+        <img src="images/logo.png">
+        <span> SafeCar </span>
+    </div>
+    <div class="menu">  
+        <ul>
+            <li>
+              <a href="presentation/login/show">Inicio</a>
+            </li>
+
+            <% if (usuario==null){ %>
+            <li>
+                <a href="presentation/login/logout">Logout</a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</header>

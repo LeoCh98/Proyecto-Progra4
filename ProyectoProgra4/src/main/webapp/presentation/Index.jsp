@@ -1,10 +1,10 @@
 <%-- 
-    Document   : index
-    Created on : 7 abr. 2023, 12:45:03
-    Author     : javir
+    Document   : Index
+    Created on : 17 Apr 2023, 19:11:25
+    Author     : leoch
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -34,3 +34,4 @@
         </footer>
     </body>
 </html>
+--%>

@@ -1,17 +1,9 @@
 <%-- 
     Document   : Footer
-    Created on : 7 abr. 2023, 12:46:22
-    Author     : javir
+    Created on : 15 Apr 2023, 16:48:33
+    Author     : leoch
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<footer>
+    <h5> AcmSoft Inc. ©2023 Tsf, Inc.</h5>
+</footer>
