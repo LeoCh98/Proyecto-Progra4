@@ -16,8 +16,12 @@
             <li>
               <a href="presentation/login/show">Inicio</a>
             </li>
+            
+            <li>
+              <a href="presentation/login/show">Acerca de...</a>
+            </li>
 
-            <% if (usuario==null){ %>
+            <% if (usuario!=null){ %>
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>
