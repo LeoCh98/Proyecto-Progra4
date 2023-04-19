@@ -14,13 +14,13 @@ public class Poliza {
     private String nombre;
     private int id;
     private int costo;
-    User usuario;
+    Client cliente;
 
     public Poliza(String nombre, int id, int costo, User usuario) {
         this.nombre = nombre;
         this.id = id;
         this.costo = costo;
-        this.usuario = usuario;
+        this.cliente = cliente;
     }
 
     public Poliza() {
@@ -51,9 +51,17 @@ public class Poliza {
         this.costo = costo;
     }
 
+    public Client getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Client cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         return hash;
     }
 
@@ -78,7 +86,7 @@ public class Poliza {
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        return Objects.equals(this.usuario, other.usuario);
+        return Objects.equals(this.cliente, other.cliente);
     }
 
     

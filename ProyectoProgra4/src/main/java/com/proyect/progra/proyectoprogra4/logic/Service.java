@@ -10,6 +10,7 @@ import com.proyect.progra.proyectoprogra4.data.ModeloDao;
 import com.proyect.progra.proyectoprogra4.data.PolizaDao;
 import com.proyect.progra.proyectoprogra4.data.RelDatabase;
 import com.proyect.progra.proyectoprogra4.data.UsuarioDao;
+import java.util.List;
 
 /**
  *
@@ -40,12 +41,27 @@ public class Service {
         polizaDao = new PolizaDao(relDatabase);
         usuarioDao = new UsuarioDao(relDatabase);
     }
-    
-    public User usuarioFind(String cedula, String clave) throws Exception{
+
+    public User usuarioFind(String cedula, String clave) throws Exception {
         User u = usuarioDao.read(cedula);
-        if(u.getClave()==clave)
+        if (u.getClave() == clave) {
             return u;
-        else return null;
+        } else {
+            return null;
+        }
     }
-    
+
+    public Client clienteFind(User usuario) throws Exception {
+        return clienteDao.read(usuario.getCedula());
+    }
+
+    public List<Poliza> polizasFind(Client cliente) throws Exception {
+        List<Poliza> polizas = polizaDao.findByClient(cliente);
+        for (Poliza p : polizas) {
+            p.setCliente(cliente);
+        }
+        cliente.setPolizas(polizas);
+        return polizas;
+    }
+
 }

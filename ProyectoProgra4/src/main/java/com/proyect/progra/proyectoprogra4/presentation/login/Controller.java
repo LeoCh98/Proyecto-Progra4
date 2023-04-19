@@ -81,7 +81,6 @@ public class Controller extends HttpServlet {
         model.getCurrent().setCedula(request.getParameter("cedulaFld"));
         model.getCurrent().setClave(request.getParameter("claveFld"));
    }
-
         
     public String loginAction(HttpServletRequest request) { //Acá se valida el tipo de usuario "admin"
         Model model= (Model) request.getAttribute("model");
@@ -93,7 +92,7 @@ public class Controller extends HttpServlet {
             String viewUrl="";
             switch(real.getTipo()){
                 case 1:
-                    viewUrl="";//viewUrl="vista usuario";
+                    viewUrl="/presentation/client/show";//viewUrl="vista usuario";
                     break;
                 case 2:
                      viewUrl="";//viewUrl="vista administrador";

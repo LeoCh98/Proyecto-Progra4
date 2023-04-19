@@ -8,10 +8,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <%@ include file="/presentation/Head.jsp" %>
     </head>
     <body>
+        <%@ include file="/presentation/Header.jsp" %>
+
+
+
         <h1>Hello World!</h1>
+
+
+
+        <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
