@@ -26,6 +26,7 @@ create table Poliza (
   nombre varchar(25) not null,
   id integer not null AUTO_INCREMENT,
   costo integer not null,
+  cliente varchar(10),
   Primary key(id)
 );
 
@@ -34,8 +35,9 @@ create table Cliente (
   cedula varchar(10) not null,
   placa varchar(6) not null,
   tarjeta integer not null,
+  telefono varchar(8),
+  correo varchar(15),
   usuario varchar(10) not null,
-  poliza integer,
   Primary key(placa)
 );
 
@@ -66,6 +68,6 @@ insert into Poliza(nombre,id,costo) values ('Danno a Personas',id,150);
 insert into Poliza(nombre,id,costo) values ('Danno a Bienes',id,175);
 insert into Poliza(nombre,id,costo) values ('Gastos Legales',id,100);
 
-insert into Cliente(nombre,cedula,placa,tarjeta,usuario,poliza) values ('Marcos','111','123456',123,'111',1);
+insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Marcos','111','123456',123,null,null,'111');
 
 Commit;
