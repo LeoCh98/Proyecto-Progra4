@@ -89,7 +89,7 @@ public class Controller extends HttpServlet {
             String viewUrl = "";
             switch (real.getTipo()) {
                 case 0:
-                    viewUrl = "";//viewUrl="vista administrador";
+                    viewUrl = "/presentation/admin/show";//viewUrl="vista administrador";
                     break;
                 case 1:
                     viewUrl = "/presentation/client/show";//viewUrl="vista usuario";

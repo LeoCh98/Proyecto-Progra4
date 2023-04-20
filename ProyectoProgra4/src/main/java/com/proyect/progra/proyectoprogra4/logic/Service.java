@@ -43,13 +43,12 @@ public class Service {
     }
 
     public User usuarioFind(String cedula, String clave) throws Exception {
-        /*User u = usuarioDao.read(cedula);
-        if (u.getClave() == clave) {
+        User u = usuarioDao.read(cedula);
+        if (u.getClave().equals(clave)) {
             return u;
         } else {
             return null;
-        }*/
-        return usuarioDao.read(cedula);
+        }
     }
 
     public Client clienteFind(User usuario) throws Exception {

@@ -50,25 +50,24 @@ public class User {
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.cedula);
+        hash = 37 * hash + Objects.hashCode(this.clave);
+        hash = 37 * hash + this.tipo;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (obj == this) {
             return true;
         }
-        if (obj == null) {
+        if (!(obj instanceof User)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (!Objects.equals(this.cedula, other.cedula)) {
-            return false;
-        }
-        return Objects.equals(this.clave, other.clave);
+        User other = (User) obj;
+        return Objects.equals(this.cedula, other.cedula)
+                && Objects.equals(this.clave, other.clave);
     }
+
 }
