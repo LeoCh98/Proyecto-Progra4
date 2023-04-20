@@ -4,34 +4,20 @@
     Author     : leoch
 --%>
 
-<%-- <%@page contentType="text/html" pageEncoding="UTF-8"%>
+ <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Log In</title>
+        <%@ include file="/presentation/Head.jsp" %>
     </head>
     <body>
-        <header>      
+        <%@ include file="/presentation/Header.jsp" %>
 
-        </header>
-        <div id="datos">
-            <br>
-            <form action="presentation/loginClient/login" method="POST">
-                <p id="sub">Username: </p>
-                <br>
-                <input id="txt" type="text" placeholder="Enter Username" name="user" required>
-                <br>
-                <p id="sub">Password: </p>
-                <input id="txt" type="password" placeholder="Enter Password" name="pass" required>
-                <br>
-                <input id="loginButton" type="submit" name="login" value="Log In"/>
-                <br>
-            </form>
-        </div>
-        <footer>
 
-        </footer>
+        <h1>Index</h1>
+
+
+
+        <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
---%>

@@ -4,7 +4,7 @@
     Author     : leoch
 --%>
 <%@page import="com.proyect.progra.proyectoprogra4.logic.User"%>
-<% User usuario=  (User) session.getAttribute("usuario");  %>
+<% User usuario = (User) session.getAttribute("usuario");  %>
 
 <header>
     <div class="logo">
@@ -14,18 +14,21 @@
     <div class="menu">  
         <ul>
             <li>
-              <a href="presentation/login/show">Inicio</a>
+                <a href="presentation/Index.jsp">Inicio</a>
             </li>
-            
             <li>
-              <a href="presentation/login/show">Acerca de...</a>
+                <a href="presentation/login/show">Acerca de...</a>
             </li>
-
-            <% if (usuario!=null){ %>
+            <% if (usuario == null) { %>
+            <li>
+                <a href="presentation/login/show">Login</a>
+            </li>
+            <% } %> 
+            <% if (usuario != null) { %>
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>
-            <% } %>
+            <% }%>
         </ul>
     </div>
 </header>

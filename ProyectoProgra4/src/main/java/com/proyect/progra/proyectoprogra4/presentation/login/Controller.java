@@ -23,113 +23,110 @@ import java.util.logging.Logger;
  *
  * @author javir
  */
-@WebServlet(name = "ControllerLogin", urlPatterns = {"/presentation/login/show", "/presentation/login/login" , "/presentation/login/logout"})
+@WebServlet(name = "ControllerLogin", urlPatterns = {"/presentation/login/show", "/presentation/login/login", "/presentation/login/logout"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-         throws jakarta.servlet.ServletException, IOException {
-      
-        request.setAttribute("model", new Model()); 
-        
-        String viewUrl="";
-        switch(request.getServletPath()){
+            throws jakarta.servlet.ServletException, IOException {
+
+        request.setAttribute("model", new Model());
+
+        String viewUrl = "";
+        switch (request.getServletPath()) {
             case "/presentation/login/show":
-                viewUrl=this.show(request);
-                break;              
+                viewUrl = this.show(request);
+                break;
             case "/presentation/login/login":
-                viewUrl=this.login(request);
-                break;            
+                viewUrl = this.login(request);
+                break;
             case "/presentation/login/logout":
-                viewUrl=this.logout(request);
+                viewUrl = this.logout(request);
                 break;
         }
-        request.getRequestDispatcher(viewUrl).forward( request, response); 
-  }
-
-    private String login(HttpServletRequest request) { 
-        try{
-            Map<String,String> errores =  this.validar(request);
-            if(errores.isEmpty()){
-                this.updateModel(request);          
-                return this.loginAction(request);
-            }
-            else{
-                request.setAttribute("errores", errores);
-                return "/presentation/login/View.jsp"; 
-            }            
-        }
-        catch(Exception e){
-            return "/presentation/Error.jsp";             
-        }         
+        request.getRequestDispatcher(viewUrl).forward(request, response);
     }
-    
-    Map<String,String> validar(HttpServletRequest request){
-        Map<String,String> errores = new HashMap<>();
-        if (request.getParameter("cedulaFld").isEmpty()){
-            errores.put("cedulaFld","Cedula requerida");
+
+    private String login(HttpServletRequest request) {
+        try {
+            Map<String, String> errores = this.validar(request);
+            if (errores.isEmpty()) {
+                this.updateModel(request);
+                return this.loginAction(request);
+            } else {
+                request.setAttribute("errores", errores);
+                return "/presentation/login/View.jsp";
+            }
+        } catch (Exception e) {
+            return "/presentation/Error.jsp";
+        }
+    }
+
+    Map<String, String> validar(HttpServletRequest request) {
+        Map<String, String> errores = new HashMap<>();
+        if (request.getParameter("cedulaFld").isEmpty()) {
+            errores.put("cedulaFld", "Cedula requerida");
         }
 
-        if (request.getParameter("claveFld").isEmpty()){
-            errores.put("claveFld","Clave requerida");
+        if (request.getParameter("claveFld").isEmpty()) {
+            errores.put("claveFld", "Clave requerida");
         }
         return errores;
     }
-    
-    void updateModel(HttpServletRequest request){
-       Model model= (Model) request.getAttribute("model");
-       
+
+    void updateModel(HttpServletRequest request) {
+        Model model = (Model) request.getAttribute("model");
         model.getCurrent().setCedula(request.getParameter("cedulaFld"));
         model.getCurrent().setClave(request.getParameter("claveFld"));
-   }
-        
+    }
+
     public String loginAction(HttpServletRequest request) { //Acá se valida el tipo de usuario "admin"
-        Model model= (Model) request.getAttribute("model");
-        Service  service = Service.instance();
+        Model model = (Model) request.getAttribute("model");
+        Service service = Service.instance();
         HttpSession session = request.getSession(true);
         try {
-            User real = service.usuarioFind(model.getCurrent().getCedula(),model.getCurrent().getClave());
+            User real = service.usuarioFind(model.getCurrent().getCedula(), model.getCurrent().getClave());
             session.setAttribute("usuario", real);
-            String viewUrl="";
-            switch(real.getTipo()){
+            String viewUrl = "";
+            switch (real.getTipo()) {
                 case 1:
-                    viewUrl="/presentation/client/show";//viewUrl="vista usuario";
+                    viewUrl = "/presentation/client/show";//viewUrl="vista usuario";
                     break;
                 case 2:
-                     viewUrl="";//viewUrl="vista administrador";
-                    break;             
+                    viewUrl = "";//viewUrl="vista administrador";
+                    break;
             }
             return viewUrl;
         } catch (Exception ex) {
-            Map<String,String> errores = new HashMap<>();
+            Map<String, String> errores = new HashMap<>();
             request.setAttribute("errores", errores);
-            errores.put("cedulaFld","Usuario o clave incorrectos");
-            errores.put("claveFld","Usuario o clave incorrectos");
-            return "/presentation/login/View.jsp"; 
-        }        
-    }   
+            errores.put("cedulaFld", "Usuario o clave incorrectos");
+            errores.put("claveFld", "Usuario o clave incorrectos");
+            return "/presentation/login/View.jsp";
+        }
+    }
 
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request) {
         return this.logoutAction(request);
     }
-    
-    public String logoutAction(HttpServletRequest request){
+
+    public String logoutAction(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         session.removeAttribute("usuario");
         session.invalidate();
-        return "/presentation/Index.jsp"; 
+        return "/presentation/Index.jsp";
         //return "/presentation/login/show";
     }
 
-    public String show(HttpServletRequest request){
+    public String show(HttpServletRequest request) {
         return this.showAction(request);
     }
-        
-    public String showAction(HttpServletRequest request){
-        Model model= (Model) request.getAttribute("model");
+
+    public String showAction(HttpServletRequest request) {
+        Model model = (Model) request.getAttribute("model");
         model.getCurrent().setCedula("");
         model.getCurrent().setClave("");
         return "/presentation/login/View.jsp"; //"/presentation/Index.jsp"; 
-    }    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

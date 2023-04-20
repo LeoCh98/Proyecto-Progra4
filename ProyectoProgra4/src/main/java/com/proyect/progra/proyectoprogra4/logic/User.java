@@ -66,9 +66,6 @@ public class User {
             return false;
         }
         final User other = (User) obj;
-        if (this.tipo != other.tipo) {
-            return false;
-        }
         if (!Objects.equals(this.cedula, other.cedula)) {
             return false;
         }

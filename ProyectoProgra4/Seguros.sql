@@ -59,15 +59,17 @@ insert into Modelo(nombre,id,marca) values ('Montero', id, 3);
 insert into Modelo(nombre,id,marca) values ('Eclipse', id, 3);
 insert into Modelo(nombre,id,marca) values ('Outlander', id, 3);
 
-insert into Usuario(cedula,clave,tipo) values ('111','111',1);
-insert into Usuario(cedula,clave,tipo) values ('2222','2222',2);
+insert into Usuario(cedula,clave,tipo) values ('1111','1111',1);
+insert into Usuario(cedula,clave,tipo) values ('2222','2222',1);
 insert into Usuario(cedula,clave,tipo) values ('3333','3333',2);
+insert into Usuario(cedula,clave,tipo) values ('4444','4444',2);
 
 insert into Poliza(nombre,id,costo) values ('Responsabilidad Civil',id,200);
 insert into Poliza(nombre,id,costo) values ('Danno a Personas',id,150);
 insert into Poliza(nombre,id,costo) values ('Danno a Bienes',id,175);
 insert into Poliza(nombre,id,costo) values ('Gastos Legales',id,100);
 
-insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Marcos','111','123456',123,null,null,'111');
-
-Commit;
+insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Marcos','1111','111111',123,null,null,'1111');
+insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Juan','2222','222222',123,null,null,'2222');
+insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Maria','3333','333333',123,null,null,'3333');
+insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Steven','4444','444444',123,null,null,'4444');
