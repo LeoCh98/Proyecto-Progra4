@@ -88,12 +88,13 @@ public class Controller extends HttpServlet {
             session.setAttribute("usuario", real);
             String viewUrl = "";
             switch (real.getTipo()) {
+                case 0:
+                    viewUrl = "";//viewUrl="vista administrador";
+                    break;
                 case 1:
                     viewUrl = "/presentation/client/show";//viewUrl="vista usuario";
                     break;
-                case 2:
-                    viewUrl = "";//viewUrl="vista administrador";
-                    break;
+
             }
             return viewUrl;
         } catch (Exception ex) {

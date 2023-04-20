@@ -59,10 +59,10 @@ insert into Modelo(nombre,id,marca) values ('Montero', id, 3);
 insert into Modelo(nombre,id,marca) values ('Eclipse', id, 3);
 insert into Modelo(nombre,id,marca) values ('Outlander', id, 3);
 
-insert into Usuario(cedula,clave,tipo) values ('1111','1111',1);
-insert into Usuario(cedula,clave,tipo) values ('2222','2222',1);
-insert into Usuario(cedula,clave,tipo) values ('3333','3333',2);
-insert into Usuario(cedula,clave,tipo) values ('4444','4444',2);
+insert into Usuario(cedula,clave,tipo) values ('1111','1111',0);
+insert into Usuario(cedula,clave,tipo) values ('2222','2222',0);
+insert into Usuario(cedula,clave,tipo) values ('3333','3333',1);
+insert into Usuario(cedula,clave,tipo) values ('4444','4444',1);
 
 insert into Poliza(nombre,id,costo) values ('Responsabilidad Civil',id,200);
 insert into Poliza(nombre,id,costo) values ('Danno a Personas',id,150);
