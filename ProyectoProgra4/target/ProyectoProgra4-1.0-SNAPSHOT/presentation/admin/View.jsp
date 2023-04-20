@@ -1,7 +1,7 @@
 <%-- 
     Document   : View
-    Created on : 7 abr. 2023, 12:50:57
-    Author     : javir
+    Created on : 20 Apr 2023, 16:27:38
+    Author     : leoch
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,10 +15,11 @@
 
 
 
-        <h1>Client logged</h1>
+        <h1>Admin logged</h1>
 
 
 
         <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
+
