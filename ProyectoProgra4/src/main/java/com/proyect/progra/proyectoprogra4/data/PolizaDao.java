@@ -28,7 +28,7 @@ public class PolizaDao {
         String sql = "select "
                 + "* "
                 + "from  Poliza p "
-                + "where p.id=?";
+                + "where p.idPolza=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, id);
         ResultSet rs = db.executeQuery(stm);
@@ -45,7 +45,7 @@ public class PolizaDao {
             String sql = "select * " +
                     "from " +
                     "Poliza p " +
-                    "where p.cliente=?";
+                    "where p.clienteId=?";
             PreparedStatement stm = db.prepareStatement(sql);
             stm.setString(1, cliente.getCedula());
             ResultSet rs = db.executeQuery(stm);
@@ -61,7 +61,8 @@ public class PolizaDao {
         try{
             Poliza p = new Poliza();
             p.setNombre(rs.getString(alias + ".nombre"));
-            p.setId(rs.getInt(alias + ".id"));
+            p.setId(rs.getInt(alias + ".idPoliza"));
+            p.setPlaca(rs.getString(alias + ".placa"));
             p.setCosto(rs.getInt(alias + ".costo"));
             return p;
         } catch (SQLException ex){

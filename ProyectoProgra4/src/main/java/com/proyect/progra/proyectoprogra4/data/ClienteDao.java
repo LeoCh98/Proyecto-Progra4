@@ -45,7 +45,6 @@ public Client from(ResultSet rs, String alias){
             Client c = new Client();
             c.setNombre(rs.getString(alias + ".nombre"));
             c.setCedula(rs.getString(alias + ".cedula"));
-            c.setPlaca(rs.getString(alias + ".placa"));
             c.setTarjeta(rs.getInt(alias + ".tarjeta"));
             c.setTelefono(rs.getString(alias + ".telefono"));
             c.setCorreo(rs.getString(alias + ".correo"));

@@ -13,18 +13,20 @@ import java.util.Objects;
 public class Poliza {
     private String nombre;
     private int id;
+    String placa;
     private int costo;
     Client cliente;
 
-    public Poliza(String nombre, int id, int costo, User usuario) {
+    public Poliza(String nombre, int id, String placa, int costo, User usuario) {
         this.nombre = nombre;
         this.id = id;
+        this.placa = placa;
         this.costo = costo;
         this.cliente = cliente;
     }
 
     public Poliza() {
-         this("",0,0,new User());
+         this("",0,"",0,new User());
     }
 
     public String getNombre() {
@@ -43,6 +45,14 @@ public class Poliza {
         this.id = id;
     }
 
+    public String getPlaca(){
+        return placa;
+    }
+    
+    public void setPlaca(String placa){
+        this.placa = placa;
+    }
+    
     public int getCosto() {
         return costo;
     }
@@ -78,6 +88,9 @@ public class Poliza {
         }
         final Poliza other = (Poliza) obj;
         if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.placa, other.placa)) {
             return false;
         }
         if (this.costo != other.costo) {

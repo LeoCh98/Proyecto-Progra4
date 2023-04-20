@@ -23,8 +23,8 @@ public class ModeloDao {
     public Modelo read(String id) throws Exception {
         String sql = "select " +
                 "* " +
-                "from Modelo m inner join Marca b on m.marca=b.id " +
-                "where m.id=?";
+                "from Modelo m inner join Marca b on m.marca=b.idModelo " +
+                "where m.idModelo=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, id);
         ResultSet rs = db.executeQuery(stm);
@@ -43,7 +43,7 @@ public class ModeloDao {
         try {
             Modelo m = new Modelo();
             m.setNombre(rs.getString(alias + ".nombre"));
-            m.setId(rs.getInt(alias + ".id"));
+            m.setId(rs.getInt(alias + ".idModelo"));
             return m;
         } catch (SQLException ex) {
             return null;
