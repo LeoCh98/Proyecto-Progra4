@@ -42,8 +42,8 @@ create table Cliente (
 );
 
 alter table Modelo add foreign key (marca) references Marca(id);
+alter table Poliza add foreign key (cliente) references Cliente(placa);
 alter table Cliente add foreign key (usuario) references Usuario(cedula);
-alter table Cliente add foreign key (poliza) references Poliza(id);
 
 insert into Marca(nombre,id) values ('Toyota',id);
 insert into Marca(nombre,id) values ('Nissan',id);
