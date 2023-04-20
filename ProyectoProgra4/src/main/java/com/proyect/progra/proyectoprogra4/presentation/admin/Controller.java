@@ -25,7 +25,7 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setAttribute("model", new com.proyect.progra.proyectoprogra4.presentation.client.Model());
+        request.setAttribute("model", new Model());
 
         String viewUrl = "";
         switch (request.getServletPath()) {
@@ -41,7 +41,7 @@ public class Controller extends HttpServlet {
     }
 
     public String showAction(HttpServletRequest request) {
-        com.proyect.progra.proyectoprogra4.presentation.client.Model model = (com.proyect.progra.proyectoprogra4.presentation.client.Model) request.getAttribute("model");
+        Model model = (Model) request.getAttribute("model");
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
 
