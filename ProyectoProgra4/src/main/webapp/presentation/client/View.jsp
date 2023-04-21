@@ -16,39 +16,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%@ include file="/presentation/Head.jsp" %>
-        <title>Polizas de </title>
-        
+        <%@ include file="/presentation/Head.jsp" %>   
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-
-
-        <div>
+        <div style="margin-top: 200px;">
             <h1>Listado de Polizas del Cliente</h1>  
-
             <table>
                 <thead>
                     <tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td></tr>
                 </thead>
                 <tbody>
-                        <% for(Poliza p:polizas){%>
-                        <tr>
-                            <td>
-                                <%=p.getId()%>
-                            </td>
-                            <td>
-                                <%=p.getNombre()%>
-                            </td>
-                            <td>
-                                <%=p.getCosto()%>
-                            </td>
-                            <td>
-                                <%=p.getPlaca()%>
-                            </td>
-                        </tr>
-                        
-                        <%}%>
+                    <% for (Poliza p : polizas) {%>
+                    <tr>
+                        <td>
+                            <%=p.getId()%>
+                        </td>
+                        <td>
+                            <%=p.getNombre()%>
+                        </td>
+                        <td>
+                            <%=p.getCosto()%>
+                        </td>
+                        <td>
+                            <%=p.getPlaca()%>
+                        </td>
+                    </tr>                    
+                    <%}%>
                 </tbody>
             </table>    
         </div>

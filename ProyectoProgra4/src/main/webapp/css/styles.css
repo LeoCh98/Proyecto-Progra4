@@ -18,7 +18,11 @@ header{
     display: flex;
     justify-content: center;
     background-color: black;
-    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
 }
 
 footer {
@@ -95,7 +99,7 @@ input[type=text].is-invalid,input[type=password].is-invalid{
 }
 
 table {
-    background-color: rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
   border-collapse: collapse;
   width: 100%;
 }
