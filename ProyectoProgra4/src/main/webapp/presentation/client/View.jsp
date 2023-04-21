@@ -20,8 +20,8 @@
     </head>
     <body>
         <%@ include file="/presentation/Header.jsp" %>
-        <div style="margin-top: 200px;">
-            <h1 style="color:rgb(255, 105, 45);" >Listado de Polizas del Cliente</h1>  
+        <div style="margin-top: 150px;">
+            <h1 style="color:rgb(255, 105, 45);" ><U>Listado de Polizas del Cliente</U></h1>  
             <table>
                 <thead>
                     <tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td></tr>
