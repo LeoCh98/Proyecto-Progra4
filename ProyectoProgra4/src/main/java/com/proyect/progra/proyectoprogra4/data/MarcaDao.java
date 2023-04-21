@@ -24,7 +24,7 @@ public class MarcaDao {
         String sql = "select " +
                 "* " +
                 "from  Marca b " +
-                "where b.id=?";
+                "where b.idMarca=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, id);
         ResultSet rs = db.executeQuery(stm);
@@ -39,7 +39,7 @@ public class MarcaDao {
         try{
             Marca b = new Marca();
             b.setNombre(rs.getString(alias + ".nombre"));
-            b.setId(rs.getInt(alias + ".id"));
+            b.setId(rs.getInt(alias + ".idMarca"));
             return b;
         } catch (SQLException ex) {
             return null;

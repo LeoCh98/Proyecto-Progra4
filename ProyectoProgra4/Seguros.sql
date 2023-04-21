@@ -4,15 +4,15 @@ USE Seguros;
 
 create table Marca (
   nombre varchar(10) not null,
-  id integer AUTO_INCREMENT,
-  Primary key(id)
+  idMarca integer AUTO_INCREMENT,
+  Primary key(idMarca)
 );
 
 create table Modelo (
   nombre varchar(10) not null,
-  id integer AUTO_INCREMENT,
+  idModelo integer AUTO_INCREMENT,
   marca integer not null,
-  Primary key(id)
+  Primary key(idModelo)
 );
 
 create table Usuario (
@@ -22,54 +22,58 @@ create table Usuario (
   Primary key(cedula)
 );
 
-create table Poliza (
-  nombre varchar(25) not null,
-  id integer not null AUTO_INCREMENT,
-  costo integer not null,
-  cliente varchar(10),
-  Primary key(id)
-);
+
 
 create table Cliente (
   nombre varchar(10) not null,
   cedula varchar(10) not null,
-  placa varchar(6) not null,
-  tarjeta integer not null,
+  tarjeta integer,
   telefono varchar(8),
   correo varchar(15),
   usuario varchar(10) not null,
-  Primary key(placa)
+  Primary key(cedula)
 );
 
-alter table Modelo add foreign key (marca) references Marca(id);
-alter table Poliza add foreign key (cliente) references Cliente(placa);
+create table Poliza (
+  nombre varchar(25) not null,
+  idPoliza integer not null AUTO_INCREMENT,
+  placa varchar(9) not null,
+  costo integer not null,
+  clienteId varchar(10),
+  Primary key(idPoliza)
+);
+
+alter table Modelo add foreign key (marca) references Marca(idMarca);
 alter table Cliente add foreign key (usuario) references Usuario(cedula);
+alter table Poliza add foreign key (clienteId) references Cliente(cedula);
 
-insert into Marca(nombre,id) values ('Toyota',id);
-insert into Marca(nombre,id) values ('Nissan',id);
-insert into Marca(nombre,id) values ('Mitsubishi',id);
+insert into Marca(nombre,idMarca) values ('Toyota',idMarca);
+insert into Marca(nombre,idMarca) values ('Nissan',idMarca);
+insert into Marca(nombre,idMarca) values ('Mitsubishi',idMarca);
 
-insert into Modelo(nombre,id,marca) values ('Fortuner', id, 1);
-insert into Modelo(nombre,id,marca) values ('Tercel', id, 1);
-insert into Modelo(nombre,id,marca) values ('Hilux', id, 1);
-insert into Modelo(nombre,id,marca) values ('Sentra', id, 2);
-insert into Modelo(nombre,id,marca) values ('Pathfinder', id, 2);
-insert into Modelo(nombre,id,marca) values ('Frontier', id, 2);
-insert into Modelo(nombre,id,marca) values ('Montero', id, 3);
-insert into Modelo(nombre,id,marca) values ('Eclipse', id, 3);
-insert into Modelo(nombre,id,marca) values ('Outlander', id, 3);
+insert into Modelo(nombre,idModelo,marca) values ('Fortuner', idModelo, 1);
+insert into Modelo(nombre,idModelo,marca) values ('Tercel', idModelo, 1);
+insert into Modelo(nombre,idModelo,marca) values ('Hilux', idModelo, 1);
+insert into Modelo(nombre,idModelo,marca) values ('Sentra', idModelo, 2);
+insert into Modelo(nombre,idModelo,marca) values ('Pathfinder', idModelo, 2);
+insert into Modelo(nombre,idModelo,marca) values ('Frontier', idModelo, 2);
+insert into Modelo(nombre,idModelo,marca) values ('Montero', idModelo, 3);
+insert into Modelo(nombre,idModelo,marca) values ('Eclipse', idModelo, 3);
+insert into Modelo(nombre,idModelo,marca) values ('Outlander', idModelo, 3);
 
 insert into Usuario(cedula,clave,tipo) values ('1111','1111',0);
 insert into Usuario(cedula,clave,tipo) values ('2222','2222',0);
 insert into Usuario(cedula,clave,tipo) values ('3333','3333',1);
 insert into Usuario(cedula,clave,tipo) values ('4444','4444',1);
 
-insert into Poliza(nombre,id,costo) values ('Responsabilidad Civil',id,200);
-insert into Poliza(nombre,id,costo) values ('Danno a Personas',id,150);
-insert into Poliza(nombre,id,costo) values ('Danno a Bienes',id,175);
-insert into Poliza(nombre,id,costo) values ('Gastos Legales',id,100);
+insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Marcos','1111',123,null,null,'1111');
+insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Juan','2222',123,null,null,'2222');
+insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Maria','3333',123,null,null,'3333');
+insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Steven','4444',123,null,null,'4444');
 
-insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Marcos','1111','111111',123,null,null,'1111');
-insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Juan','2222','222222',123,null,null,'2222');
-insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Maria','3333','333333',123,null,null,'3333');
-insert into Cliente(nombre,cedula,placa,tarjeta,telefono, correo, usuario) values ('Steven','4444','444444',123,null,null,'4444');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Responsabilidad Civil',idPoliza,'111111',10000,'3333');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Danno a Personas',idPoliza,'222222',10000,'3333');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Danno a Bienes',idPoliza,'333333',10000,'3333');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'444444',10000,'3333');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'333333',10000,'3333');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'111111',10000,'4444');

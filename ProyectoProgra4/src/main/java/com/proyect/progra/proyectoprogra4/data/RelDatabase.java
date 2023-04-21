@@ -27,7 +27,7 @@ public class RelDatabase {
             String server = "localhost";
             String port = "3306";
             String user = "root";
-            String password = "root";
+            String password = "rootroot";
             String database = "Seguros";
             
             String URL_conexion="jdbc:mysql://"+ server+":"+port+"/"+database+"?user="+user+"&password="+

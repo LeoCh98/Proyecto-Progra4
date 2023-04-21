@@ -28,6 +28,7 @@
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>
+            
             <% }%>
         </ul>
     </div>

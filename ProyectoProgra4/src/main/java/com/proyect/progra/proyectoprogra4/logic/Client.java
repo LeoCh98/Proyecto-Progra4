@@ -14,17 +14,15 @@ import java.util.Objects;
 public class Client {
     String nombre;
     String cedula;
-    String placa;
     int tarjeta;
     String telefono;
     String correo;
     User usuario;
     List<Poliza> polizas;
 
-    public Client(String nombre, String cedula, String placa, int tarjeta, String telefono, String correo, User usuario) {
+    public Client(String nombre, String cedula, int tarjeta, String telefono, String correo, User usuario) {
         this.nombre = nombre;
         this.cedula = cedula;
-        this.placa = placa;
         this.tarjeta = tarjeta;
         this.telefono = telefono;
         this.correo = correo;
@@ -33,7 +31,7 @@ public class Client {
     }
 
     public Client() {
-        this("","","",0,"","",new User());
+        this("","",0,"","",new User());
     }
 
     public String getNombre() {
@@ -50,14 +48,6 @@ public class Client {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 
     public int getTarjeta() {
@@ -125,9 +115,6 @@ public class Client {
             return false;
         }
         if (!Objects.equals(this.cedula, other.cedula)) {
-            return false;
-        }
-        if (!Objects.equals(this.placa, other.placa)) {
             return false;
         }
         if (!Objects.equals(this.telefono, other.telefono)) {
