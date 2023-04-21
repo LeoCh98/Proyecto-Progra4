@@ -22,8 +22,6 @@ create table Usuario (
   Primary key(cedula)
 );
 
-
-
 create table Cliente (
   nombre varchar(10) not null,
   cedula varchar(10) not null,

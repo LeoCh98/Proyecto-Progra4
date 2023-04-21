@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws jakarta.servlet.ServletException, IOException {
+            throws ServletException, IOException {
 
         request.setAttribute("model", new Model());
 

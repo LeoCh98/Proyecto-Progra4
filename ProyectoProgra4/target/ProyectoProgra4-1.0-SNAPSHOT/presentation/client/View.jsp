@@ -24,7 +24,7 @@
             <h1 style="color:rgb(255, 105, 45);" ><U>Listado de Polizas del Cliente</U></h1>  
             <table>
                 <thead>
-                    <tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td></tr>
+                <b><tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td></tr></b>
                 </thead>
                 <tbody>
                     <% for (Poliza p : polizas) {%>

@@ -40,8 +40,8 @@ public class ClienteDao {
         }
     }
 
-public Client from(ResultSet rs, String alias){
-        try{
+    public Client from(ResultSet rs, String alias) {
+        try {
             Client c = new Client();
             c.setNombre(rs.getString(alias + ".nombre"));
             c.setCedula(rs.getString(alias + ".cedula"));
@@ -53,4 +53,35 @@ public Client from(ResultSet rs, String alias){
             return null;
         }
     }
+
+    public void update(Client e) throws Exception {
+        String sql = "update "
+                + "Cliente "
+                + "set nombre=? "
+                + "where cedula=?";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getNombre());
+        stm.setString(2, e.getCedula());
+        int count = db.executeUpdate(stm);
+        if (count == 0) {
+            throw new Exception("Cliente no existe");
+        }
+    }
+
+    public void write(Client c) throws Exception {
+        String sql = "insert into Cliente (nombre, cedula, tarjeta, telefono, correo, usuario) "
+                + "values (?, ?, ?, ?, ?, ?)";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, c.getNombre());
+        stm.setString(2, c.getCedula());
+        stm.setInt(3, c.getTarjeta());
+        stm.setString(4, c.getTelefono());
+        stm.setString(5, c.getCorreo());
+        stm.setString(6, c.getCedula());
+        int count = stm.executeUpdate();
+        if (count == 0) {
+            throw new Exception("Cliente no insertado");
+        }
+    }
+
 }

@@ -14,7 +14,7 @@
         <%@ include file="/presentation/Header.jsp" %>
 
 
-        <h1>Index</h1>
+        <h1 style=" margin-top: 150px">Su aseguradora de confianza...</h1>
 
 
 

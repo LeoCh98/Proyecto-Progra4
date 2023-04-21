@@ -64,4 +64,16 @@ public class Service {
         return polizas;
     }
 
+    public void clienteUpdate(Client c) throws Exception {
+        clienteDao.update(c);
+    }
+
+    public void clienteInsert(Client c) throws Exception {
+        clienteDao.write(c);
+    }
+
+    public void userInsert(User u) throws Exception {
+        usuarioDao.write(u);
+    }
+
 }

@@ -16,20 +16,22 @@
             <li>
                 <a href="presentation/Index.jsp">Inicio</a>
             </li>
-            <li>
-                <a href="presentation/login/show">Acerca de...</a>
-            </li>
             <% if (usuario == null) { %>
             <li>
                 <a href="presentation/login/show">Login</a>
+            </li>
+            <li>
+                <a href="presentation/signup/show">Registrarse</a>
             </li>
             <% } %> 
             <% if (usuario != null) { %>
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>
-            
             <% }%>
+            <li>
+                <a href="presentation/about_us.jsp">Acerca de...</a>
+            </li>
         </ul>
     </div>
 </header>
