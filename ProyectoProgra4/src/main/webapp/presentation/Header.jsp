@@ -29,7 +29,7 @@
             <% } %> 
             <% if (usuario != null) { %>
             <li>
-                <a href="presentation/update/show"> <% out.print(usuario.getCedula()); %> </a>
+                <a href="presentation/update/show"> Usuario: <% out.print(usuario.getCedula()); %> </a>
             </li>
             <li>
                 <a href="presentation/login/logout">Logout</a>

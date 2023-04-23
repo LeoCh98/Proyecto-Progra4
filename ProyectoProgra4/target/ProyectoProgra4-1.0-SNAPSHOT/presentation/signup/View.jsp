@@ -42,7 +42,7 @@
                 </div>
                 <div class="fila">
                     <div class="etiqueta">Tarjeta</div>
-                    <div class="campo"><input class="<%=erroneo("tarjetaFld", errores)%>" placeholder="Numero de tarjeta" type="text" name="tarjetaFld" value="<%=form.get("tarjetaFld")[0]%>" title="<%=title("tarjetaFld", errores)%>"></div>
+                    <input style ="margin-left: 5px;" class="<%=erroneo("tarjetaFld", errores)%>" placeholder="Numero de tarjeta" type="text" name="tarjetaFld" title="<%=title("tarjetaFld", errores)%>">
                 </div>
                 <div class="fila">
                     <div class="etiqueta">Telefono</div>
