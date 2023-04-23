@@ -37,6 +37,7 @@ create table Poliza (
   idPoliza integer not null AUTO_INCREMENT,
   placa varchar(9) not null,
   costo integer not null,
+  modeloId integer,
   clienteId varchar(10),
   Primary key(idPoliza)
 );
@@ -44,6 +45,7 @@ create table Poliza (
 alter table Modelo add foreign key (marca) references Marca(idMarca);
 alter table Cliente add foreign key (usuario) references Usuario(cedula);
 alter table Poliza add foreign key (clienteId) references Cliente(cedula);
+alter table Poliza add foreign key (modeloId) references Modelo(idModelo);
 
 insert into Marca(nombre,idMarca) values ('Toyota',idMarca);
 insert into Marca(nombre,idMarca) values ('Nissan',idMarca);
@@ -69,9 +71,9 @@ insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Ju
 insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Maria','3333',123,null,null,'3333');
 insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Steven','4444',123,null,null,'4444');
 
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Responsabilidad Civil',idPoliza,'111111',10000,'3333');
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Danno a Personas',idPoliza,'222222',10000,'3333');
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Danno a Bienes',idPoliza,'333333',10000,'3333');
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'444444',10000,'3333');
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'333333',10000,'3333');
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId) values ('Gastos Legales',idPoliza,'111111',10000,'4444');
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Responsabilidad Civil',idPoliza,'111111',10000,'3333',1);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Personas',idPoliza,'222222',10000,'3333',6);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Bienes',idPoliza,'333333',10000,'3333',3);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'444444',10000,'3333',5);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'333333',10000,'3333',7);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'111111',10000,'4444',6);

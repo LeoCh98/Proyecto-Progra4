@@ -11,11 +11,13 @@ import java.util.Objects;
  * @author leoch
  */
 public class Modelo {
+
     String nombre;
     int id;
     Marca marca;
 
     public Modelo() {
+        this("", 0, new Marca());
     }
 
     public Modelo(String nombre, int id, Marca marca) {
@@ -74,5 +76,5 @@ public class Modelo {
         }
         return Objects.equals(this.marca, other.marca);
     }
-    
+
 }

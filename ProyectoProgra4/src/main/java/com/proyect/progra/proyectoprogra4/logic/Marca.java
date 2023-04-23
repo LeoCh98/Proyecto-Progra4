@@ -11,10 +11,12 @@ import java.util.Objects;
  * @author leoch
  */
 public class Marca {
+
     String nombre;
     int id;
 
     public Marca() {
+        this("", 0);
     }
 
     public Marca(String nombre, int id) {
@@ -61,5 +63,5 @@ public class Marca {
         }
         return Objects.equals(this.nombre, other.nombre);
     }
-    
+
 }

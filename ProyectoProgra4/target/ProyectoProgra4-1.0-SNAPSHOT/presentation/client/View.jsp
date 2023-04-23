@@ -24,7 +24,7 @@
             <h1 style="color:rgb(255, 105, 45);" ><U>Listado de Polizas del Cliente</U></h1>  
             <table>
                 <thead>
-                <b><tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td></tr></b>
+                <b><tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td> <td>Modelo</td> <td>Marca</td></tr></b>
                 </thead>
                 <tbody>
                     <% for (Poliza p : polizas) {%>
@@ -40,6 +40,12 @@
                         </td>
                         <td>
                             <%=p.getPlaca()%>
+                        </td>
+                        <td>
+                            <%=p.getModelo().getNombre()%>
+                        </td>
+                        <td>
+                            <%=p.getModelo().getMarca().getNombre()%>
                         </td>
                     </tr>                    
                     <%}%>

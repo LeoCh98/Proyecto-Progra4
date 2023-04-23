@@ -14,32 +14,33 @@ import java.sql.SQLException;
  * @author leoch
  */
 public class ModeloDao {
+
     RelDatabase db;
-    
-    public ModeloDao(RelDatabase db){
-    this.db = db;
+
+    public ModeloDao(RelDatabase db) {
+        this.db = db;
     }
-    
+
     public Modelo read(String id) throws Exception {
-        String sql = "select " +
-                "* " +
-                "from Modelo m inner join Marca b on m.marca=b.idModelo " +
-                "where m.idModelo=?";
+        String sql = "select "
+                + "* "
+                + "from Modelo m inner join Marca b on m.marca=b.idMarca "
+                + "where m.idModelo=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, id);
         ResultSet rs = db.executeQuery(stm);
         MarcaDao marcaDao = new MarcaDao(db);
         Modelo m;
-        if (rs.next()){
+        if (rs.next()) {
             m = from(rs, "m");
-            m.setMarca(marcaDao.from(rs,"m"));
+            m.setMarca(marcaDao.read(rs.getString("idMarca")));
             return m;
         } else {
             throw new Exception("Modelo no existe");
         }
     }
-    
-    public Modelo from(ResultSet rs, String alias){
+
+    public Modelo from(ResultSet rs, String alias) {
         try {
             Modelo m = new Modelo();
             m.setNombre(rs.getString(alias + ".nombre"));

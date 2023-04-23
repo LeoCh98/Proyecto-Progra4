@@ -15,18 +15,20 @@ public class Poliza {
     private int id;
     String placa;
     private int costo;
+    Modelo modelo;
     Client cliente;
 
-    public Poliza(String nombre, int id, String placa, int costo, User usuario) {
+    public Poliza(String nombre, int id, String placa, int costo, Modelo modelo, Client cliente) {
         this.nombre = nombre;
         this.id = id;
         this.placa = placa;
         this.costo = costo;
+        this.modelo = modelo;
         this.cliente = cliente;
     }
 
     public Poliza() {
-         this("",0,"",0,new User());
+         this("",0,"",0,new Modelo(), new Client());
     }
 
     public String getNombre() {
@@ -67,6 +69,14 @@ public class Poliza {
 
     public void setCliente(Client cliente) {
         this.cliente = cliente;
+    }
+
+    public Modelo getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
     }
 
     @Override
