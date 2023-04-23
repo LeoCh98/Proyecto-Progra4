@@ -4,6 +4,7 @@
  */
 package com.proyect.progra.proyectoprogra4.presentation.login;
 
+import com.proyect.progra.proyectoprogra4.logic.Client;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -115,7 +116,6 @@ public class Controller extends HttpServlet {
         session.removeAttribute("usuario");
         session.invalidate();
         return "/presentation/Index.jsp";
-        //return "/presentation/login/show";
     }
 
     public String show(HttpServletRequest request) {

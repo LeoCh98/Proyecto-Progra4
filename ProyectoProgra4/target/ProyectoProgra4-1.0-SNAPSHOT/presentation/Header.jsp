@@ -4,7 +4,10 @@
     Author     : leoch
 --%>
 <%@page import="com.proyect.progra.proyectoprogra4.logic.User"%>
-<% User usuario = (User) session.getAttribute("usuario");  %>
+
+<%
+    User usuario = (User) session.getAttribute("usuario");
+%>
 
 <header>
     <div class="logo">
@@ -25,6 +28,9 @@
             </li>
             <% } %> 
             <% if (usuario != null) { %>
+            <li>
+                <a href="presentation/update/show"> <% out.print(usuario.getCedula()); %> </a>
+            </li>
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>

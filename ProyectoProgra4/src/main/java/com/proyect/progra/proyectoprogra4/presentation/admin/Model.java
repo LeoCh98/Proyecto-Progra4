@@ -4,6 +4,7 @@
  */
 package com.proyect.progra.proyectoprogra4.presentation.admin;
 
+import com.proyect.progra.proyectoprogra4.logic.Client;
 import com.proyect.progra.proyectoprogra4.logic.Poliza;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,17 +14,18 @@ import java.util.List;
  * @author leoch
  */
 public class Model {
+    List<Client> clientes;
     List<Poliza> polizas;
-    Poliza seleccionado;
     
     public Model() {
         this.reset();
     }
 
     public void reset(){ 
-        List<Poliza> rows = new ArrayList<>();        
-        seleccionado=null;  
+        List<Poliza> rows = new ArrayList<>();         
         this.setPolizas(rows);
+        List<Client> rows1 = new ArrayList<>();         
+        this.setClientes(rows1);
     }
     
     public void setPolizas(List<Poliza> cuentas){
@@ -34,11 +36,12 @@ public class Model {
         return polizas;
     }
 
-    public Poliza getSeleccionado() {
-        return seleccionado;
+    public List<Client> getClientes() {
+        return clientes;
     }
 
-    public void setSeleccionado(Poliza seleccionado) {
-        this.seleccionado = seleccionado;
+    public void setClientes(List<Client> clientes) {
+        this.clientes = clientes;
     }
+
 }
