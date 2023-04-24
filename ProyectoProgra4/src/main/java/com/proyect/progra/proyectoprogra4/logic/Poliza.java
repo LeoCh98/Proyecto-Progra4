@@ -30,6 +30,27 @@ public class Poliza {
     public Poliza() {
          this("",0,"",0,new Modelo(), new Client());
     }
+    
+    public void setNombre_Costo(int index){
+        switch(index){
+            case 1:
+                this.nombre = "Responsabilidad Civil";
+                this.costo = 10000;
+                break;
+            case 2:
+                this.nombre = "Danno a Personas";
+                this.costo = 20000;
+                break;
+            case 3:
+                this.nombre = "Danno a Bienes";
+                this.costo = 30000;
+                break;
+            case 4:
+                this.nombre = "Gastos Legales";
+                this.costo = 40000;
+                break;
+        }
+    }
 
     public String getNombre() {
         return nombre;

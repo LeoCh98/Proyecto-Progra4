@@ -27,7 +27,7 @@ create table Cliente (
   cedula varchar(10) not null,
   tarjeta integer,
   telefono varchar(8),
-  correo varchar(15),
+  correo varchar(25),
   usuario varchar(10) not null,
   Primary key(cedula)
 );
@@ -62,18 +62,18 @@ insert into Modelo(nombre,idModelo,marca) values ('Eclipse', idModelo, 3);
 insert into Modelo(nombre,idModelo,marca) values ('Outlander', idModelo, 3);
 
 insert into Usuario(cedula,clave,tipo) values ('1111','1111',0);
-insert into Usuario(cedula,clave,tipo) values ('2222','2222',0);
+insert into Usuario(cedula,clave,tipo) values ('2222','2222',1);
 insert into Usuario(cedula,clave,tipo) values ('3333','3333',1);
 insert into Usuario(cedula,clave,tipo) values ('4444','4444',1);
 
-insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Marcos','1111',123,null,null,'1111');
+insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Marcos','1111',123,'admin','admin','1111');
 insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Juan','2222',123,null,null,'2222');
 insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Maria','3333',123,null,null,'3333');
 insert into Cliente(nombre,cedula,tarjeta,telefono, correo, usuario) values ('Steven','4444',123,null,null,'4444');
 
 insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Responsabilidad Civil',idPoliza,'111111',10000,'3333',1);
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Personas',idPoliza,'222222',10000,'3333',6);
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Bienes',idPoliza,'333333',10000,'3333',3);
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'444444',10000,'3333',5);
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'333333',10000,'3333',7);
-insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'111111',10000,'4444',6);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Personas',idPoliza,'222222',20000,'3333',6);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Danno a Bienes',idPoliza,'333333',30000,'3333',3);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'444444',40000,'3333',5);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'333333',40000,'3333',7);
+insert into Poliza(nombre,idPoliza,placa,costo,clienteId,modeloId) values ('Gastos Legales',idPoliza,'111111',40000,'4444',6);

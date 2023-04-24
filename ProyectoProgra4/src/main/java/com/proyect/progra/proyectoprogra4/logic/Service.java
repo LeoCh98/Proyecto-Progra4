@@ -63,6 +63,10 @@ public class Service {
         cliente.setPolizas(polizas);
         return polizas;
     }
+    
+    public List<Client> clientesFind() throws Exception{
+        return clienteDao.findAll();
+    }
 
     public void clienteUpdate(Client c) throws Exception {
         clienteDao.update(c);
@@ -75,9 +79,8 @@ public class Service {
     public void userInsert(User u) throws Exception {
         usuarioDao.write(u);
     }
-
-    public void polizaInsert(Poliza p) throws Exception {
+    
+    public void polizaInsert(Poliza p) throws Exception{
         polizaDao.write(p);
     }
-    
 }

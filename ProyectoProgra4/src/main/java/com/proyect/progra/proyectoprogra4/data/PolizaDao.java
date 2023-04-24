@@ -5,12 +5,12 @@
 package com.proyect.progra.proyectoprogra4.data;
 
 import com.proyect.progra.proyectoprogra4.logic.Client;
-import com.proyect.progra.proyectoprogra4.logic.Marca;
 import com.proyect.progra.proyectoprogra4.logic.Modelo;
 import com.proyect.progra.proyectoprogra4.logic.Poliza;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,19 +61,38 @@ public class PolizaDao {
         }
     }
 
-    public void write(Poliza p) throws Exception {
-        String sql = "insert into Poliza (nombre,idPoliza,placa,costo,clienteId,modeloId) "
-                + "values (?, ?, ?, ?, ?, ?)";
-        PreparedStatement stm = db.prepareStatement(sql);
-        stm.setString(1, p.getNombre());
-        stm.setInt(2, p.getId());
-        stm.setString(3, p.getPlaca());
-        stm.setInt(4, p.getCosto());
-        stm.setString(5, p.getCliente().getCedula());
-        stm.setInt(6, p.getModelo().getId());
-        int count = stm.executeUpdate();
-        if (count == 0) {
-            throw new Exception("Poliza no insertada");
+    public void write(Poliza poliza) throws Exception {
+        try {
+            String sql = "insert into Poliza (nombre, placa, costo, modeloId, clienteId) values (?, ?, ?, ?, ?)";
+            PreparedStatement stm = db.prepareStatement(sql);
+            stm.setString(1, poliza.getNombre());
+            stm.setString(2, poliza.getPlaca());
+            stm.setInt(3, poliza.getCosto());
+            if (poliza.getModelo() != null) {
+                stm.setInt(4, poliza.getModelo().getId());
+            } else {
+                stm.setNull(4, Types.INTEGER);
+            }
+            if (poliza.getCliente() != null) {
+                stm.setString(5, poliza.getCliente().getCedula());
+            } else {
+                stm.setNull(5, Types.VARCHAR);
+            }
+            int rowsAffected = db.executeUpdate(stm);
+            if (rowsAffected == 0) {
+                throw new SQLException("No se pudo ingresar la poliza");
+            }
+            try (ResultSet generatedKeys = stm.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    poliza.setId(id);
+                } else {
+                    throw new SQLException("No se pudo ingresar el idPoliza");
+                }
+            }
+        } catch (SQLException ex) {
+            throw new Exception("No se pudo escribir la poliza", ex);
         }
     }
+
 }

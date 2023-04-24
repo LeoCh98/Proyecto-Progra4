@@ -8,6 +8,8 @@ import com.proyect.progra.proyectoprogra4.logic.Client;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -87,5 +89,24 @@ public class ClienteDao {
             throw new Exception("Cliente no insertado");
         }
     }
+    
+    public List<Client> findAll() throws Exception {
+    List<Client> clients = new ArrayList<>();
+    try {
+        String sql = "select * from Cliente c inner join Usuario u on c.usuario=u.cedula";
+        PreparedStatement stm = db.prepareStatement(sql);
+        ResultSet rs = db.executeQuery(stm);
+        UsuarioDao usuarioDao = new UsuarioDao(db);
+        while (rs.next()) {
+            Client c = from(rs, "c");
+            c.setUsuario(usuarioDao.from(rs, "u"));
+            clients.add(c);
+        }
+    } catch (SQLException ex) {
+        throw new Exception("Clientes no insertados", ex);
+    }
+    return clients;
+}
+
 
 }

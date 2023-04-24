@@ -49,6 +49,11 @@ public class User {
     }
 
     @Override
+    public String toString() {
+        return "Username=" + cedula + " Password=" + clave;
+    }
+
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + Objects.hashCode(this.cedula);

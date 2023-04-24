@@ -53,7 +53,8 @@ public class Controller extends HttpServlet {
             cliente = null;
         }
         try {
-            model.setPolizas(service.polizasFind(cliente));
+            model.setClientes(service.clientesFind());
+            //model.setPolizas(service.polizasFind(cliente));
             return "/presentation/admin/View.jsp";
         } catch (Exception ex) {
             return "";
