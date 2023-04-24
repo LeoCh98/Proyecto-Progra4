@@ -76,4 +76,8 @@ public class Service {
         usuarioDao.write(u);
     }
 
+    public void polizaInsert(Poliza p) throws Exception {
+        polizaDao.write(p);
+    }
+    
 }

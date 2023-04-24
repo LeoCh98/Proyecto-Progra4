@@ -50,7 +50,12 @@
                     </tr>                    
                     <%}%>
                 </tbody>
-            </table>    
+            </table>
+            <div>
+                <form action="" >
+                    <button style="text-align: center;">Agregar nueva poliza.</button>
+                </form>
+            </div>
         </div>
         <%@ include file="/presentation/Footer.jsp" %>
     </body>
