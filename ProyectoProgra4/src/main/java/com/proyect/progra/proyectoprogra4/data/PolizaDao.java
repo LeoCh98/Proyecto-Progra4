@@ -60,4 +60,20 @@ public class PolizaDao {
             return null;
         }
     }
+
+    public void write(Poliza p) throws Exception {
+        String sql = "insert into Poliza (nombre,idPoliza,placa,costo,clienteId,modeloId) "
+                + "values (?, ?, ?, ?, ?, ?)";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, p.getNombre());
+        stm.setInt(2, p.getId());
+        stm.setString(3, p.getPlaca());
+        stm.setInt(4, p.getCosto());
+        stm.setString(5, p.getCliente().getCedula());
+        stm.setInt(6, p.getModelo().getId());
+        int count = stm.executeUpdate();
+        if (count == 0) {
+            throw new Exception("Poliza no insertada");
+        }
+    }
 }
