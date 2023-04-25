@@ -21,10 +21,10 @@
     <body>
         <%@ include file="/presentation/Header.jsp" %>
         <div style="margin-top: 150px;">
-            <h1 style="color:rgb(255, 105, 45);" ><U>Listado de Polizas del Cliente</U></h1>  
+            <h1 style="color:rgb(255, 105, 45); text-align: center;" ><U>Listado de Polizas del Cliente</U></h1>  
             <table>
                 <thead>
-                <b><tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td> <td>Modelo</td> <td>Marca</td></tr></b>
+                <b><tr> <td>Id Poliza</td> <td>Tipo de poliza</td> <td>Costo</td> <td>Placa</td> <td>Modelo</td> <td>Marca</td> <td>Fotografia</td></tr></b>
                 </thead>
                 <tbody>
                     <% for (Poliza p : polizas) {%>
@@ -46,6 +46,10 @@
                         </td>
                         <td>
                             <%=p.getModelo().getMarca().getNombre()%>
+                        </td>
+                        <td>
+                            <img src="images/<%=p.getModelo().getId()%>.jpg"
+                                 style="height:42px;"/>
                         </td>
                     </tr>                    
                     <%}%>

@@ -27,10 +27,22 @@
                 <a href="presentation/signup/show">Registrarse</a>
             </li>
             <% } %> 
-            <% if (usuario != null) { %>
+            <% if (usuario != null) { 
+                if (usuario.getTipo() == 1) {
+            %>
             <li>
                 <a href="presentation/update/show"> Usuario: <% out.print(usuario.getCedula()); %> </a>
             </li>
+            <li>
+                <a href="presentation/client/show">Polizas</a>
+            </li>
+            <% }
+                if (usuario.getTipo() == 0) {
+            %>
+            <li>
+                <a href="presentation/update/show"> Admin: <% out.print(usuario.getCedula()); %> </a>
+            </li>
+            <% }%>
             <li>
                 <a href="presentation/login/logout">Logout</a>
             </li>
